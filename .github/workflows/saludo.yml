@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
     saludar:
-        run-on: ubuntu-latest
+        runs-on: ubuntu-latest
         steps:
             - name: Decir Hola
             run: echo "Hola Mundo de HaB"
