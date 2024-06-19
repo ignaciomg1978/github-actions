@@ -1,9 +1,13 @@
 name: Levantar Node
-on: push
+on: push # pull_request, schedule, workflow_dispatch, repository_dispatch, issues, release
 jobs:
     checkOut:
-        runs-on: ubuntu-22.04
-
+        #runs-on: ubuntu-22.04
+        runs-on: ${{matrix.os}}
+        #Cada job puede tener una matriz
+        strategy:
+          matrix:
+            os: [ubuntu-22.04, ubuntu-18.04]
         steps:
             - name: Check-Out del código
               uses: actions/checkout@v4
@@ -26,5 +30,7 @@ jobs:
             - name: Instalar dependencias
               run: npm i
               
-            - name: Ejecutar Backend
-              run: npm run dev
+            #- name: Ejecutar Backend
+            #  run: npm run dev
+            
+              
