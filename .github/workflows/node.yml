@@ -8,6 +8,15 @@ jobs:
             - name: Check-Out del código
               uses: actions/checkout@v2
 
+            - run: node --version
+
+            - name: Elegir version node
+              uses: actions/setup-node@v4
+              with:
+                    node-version: 20
+
+            - run: node --version
+            
             - name: Revisar ruta
               run: echo "Ruta del directorio es $GITHUB_WORKSPACE"
 
