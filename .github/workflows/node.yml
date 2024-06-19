@@ -2,11 +2,11 @@ name: Levantar Node
 on: push
 jobs:
     checkOut:
-        runs-on: ubuntu-20.04
+        runs-on: ubuntu-22.04
 
         steps:
             - name: Check-Out del código
-              uses: actions/checkout@v2
+              uses: actions/checkout@v4
 
             - run: node --version
 
@@ -16,7 +16,7 @@ jobs:
                     node-version: 20
 
             - run: node --version
-            
+
             - name: Revisar ruta
               run: echo "Ruta del directorio es $GITHUB_WORKSPACE"
 
