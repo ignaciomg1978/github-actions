@@ -44,7 +44,7 @@ jobs:
                 from: ${{secrets.MAIL_ADDRESS}}
                 to: ignacio.moreno@softtek.com
                 subject: Prueba titulo
-                body: ${{vars.MAIL_BODY}}
+                body: ${{vars.BODY}}
                 contentType: text/html
 
             - name: Instalar dependencias
