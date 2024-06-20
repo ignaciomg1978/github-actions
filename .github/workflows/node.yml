@@ -38,6 +38,6 @@ jobs:
             - name: Mostrar Secret
               run: echo ${{secrets.MI_SECRET}} # No lo muestra por motivos de seguridad
             - name: Mostrar Variable
-              run: echo ${{env.MI_VARIABLE}}  
+              run: echo ${{vars.MI_VARIABLE}}
             
               
