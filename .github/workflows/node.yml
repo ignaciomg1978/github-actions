@@ -36,6 +36,8 @@ jobs:
             #- name: Ejecutar Backend
             #  run: npm run dev
             - name: Mostrar Secret
-              run: echo ${{secrets.MI_SECRET}}
+              run: echo ${{secrets.MI_SECRET}} # No lo muestra por motivos de seguridad
+            - name: Mostrar Variable
+              run: echo ${{env.MI_VARIABLE}}  
             
               
