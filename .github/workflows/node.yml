@@ -30,14 +30,13 @@ jobs:
               run: echo "Ruta del directorio es $GITHUB_WORKSPACE"
 
             - name: Listar archivos
-              run: |
-                try {
-                    ls -la $GITHUB_WORKSPACE
-                } catch(error){
-                    echo error
-                    exit 0 # 0 para que continue 
-                }
-
+              run: ls -la $GITHUB_WORKSPACE
+              continue-on-error: true
+              
+            - name: Correr ante error
+              if: ${{failure()}}
+              run: echo "Error"
+            
             - name: Instalar dependencias
               run: npm i
               
