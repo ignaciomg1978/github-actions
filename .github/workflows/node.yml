@@ -36,6 +36,7 @@ jobs:
             - name: Correr ante error
               if: ${{failure()}}
               run: echo "Error"
+              continue-on-error: true
             
             - name: Instalar dependencias
               run: npm i
