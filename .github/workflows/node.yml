@@ -1,5 +1,7 @@
 name: Levantar Node
 on: push # pull_request, schedule, workflow_dispatch, repository_dispatch, issues, release
+env:
+    MI_VAR: "Valor de la variable de action"
 jobs:
     checkOut:
         #runs-on: ubuntu-22.04
@@ -38,6 +40,8 @@ jobs:
             - name: Mostrar Secret
               run: echo ${{secrets.MI_SECRET}} # No lo muestra por motivos de seguridad
             - name: Mostrar Variable
-              run: echo ${{vars.MI_VARIABLE}}
+              run: echo ${{vars.MI_VARIABLE}} # Variable a nivel de repositorio
+            - name: Mostrar Variable Action
+              run: echo $MI_VAR # Variable a nivel de action
             
               
