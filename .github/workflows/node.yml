@@ -10,8 +10,8 @@ jobs:
         strategy:
           matrix:
             #os: [ubuntu-22.04, ubuntu-20.04, windows-latest, macos-latest]
-            os: [ubuntu-22.04, ubuntu-20.04, macos-latest]
-            node-version: [16.x, 18.x, 20.x]
+            os: [ubuntu-latest, windows-latest, macos-latest]
+            node-version: [18.x, 20.x]
         steps:
             - name: Check-Out del código
               uses: actions/checkout@v4
@@ -30,17 +30,26 @@ jobs:
               run: echo "Ruta del directorio es $GITHUB_WORKSPACE"
 
             - name: Listar archivos
-              run: ls -la $GITHUB_WORKSPACE
+              run: |
+                try {
+                    ls -la $GITHUB_WORKSPACE
+                } catch(error){
+                    echo error
+                    exit 0 # 0 para que continue 
+                }
 
             - name: Instalar dependencias
               run: npm i
               
             #- name: Ejecutar Backend
             #  run: npm run dev
+
             - name: Mostrar Secret
               run: echo ${{secrets.MI_SECRET}} # No lo muestra por motivos de seguridad
+
             - name: Mostrar Variable
-              run: echo ${{vars.MI_VARIABLE}} # Variable a nivel de repositorio
+              run: echo ${{vars.MI_VARIABLE}} # Variable a nivel de repositorio, a nivel de entorno sería env.MIVAR
+
             - name: Mostrar Variable Action
               run: echo $MI_VAR # Variable a nivel de action
             
