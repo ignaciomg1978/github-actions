@@ -17,14 +17,14 @@ jobs:
             - name: Decir Hola
               run: echo "Hola Mundo de HaB"
             - name: Pausa
-              run: sleep 5
+              run: sleep 1
     saludar2:
         runs-on: ubuntu-latest
         steps:
             - name: Decir Hola
               run: echo "Hola Mundo de HaB"
             - name: Pausa
-              run: sleep 5
+              run: sleep 7
             
 
     darHora:
